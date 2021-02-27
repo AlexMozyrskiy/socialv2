@@ -3,8 +3,11 @@ import {
     SET_CAPTCHA_INTO_STATE, SET_RESPONSE_ERROR_TEXT_INTO_STATE,
     TOOGLE_IS_LOGIN_REQUIREMENT
 } from "./actionTypes";
+import {
+    InitialStateTSType, ActionTSType, LoginModalWindowReducerTStype
+} from "./typeScriprtTypes";
 
-let initialState = {
+let initialState: InitialStateTSType = {
     isModalLoginWindowActive: false,
     isCapthaActive: false,
     captchaURL: null,
@@ -13,7 +16,7 @@ let initialState = {
     isLoginRequirementActive: false
 };
 
-const loginModalWindowReducer = (state = initialState, action) => {
+const loginModalWindowReducer: LoginModalWindowReducerTStype = (state = initialState, action: ActionTSType) => {
     switch (action.type) {
         case IS_MODAL_LOGIN_WINDOW_ACTIVE: {
             const superState = {

@@ -12,7 +12,7 @@ import Footer from "./UI/Footer/Footer";
 import { getIsAppInitializedSelector } from "./BLL/initializedApp/selectors";
 import { initializedAppThunkCreator } from "./BLL/initializedApp/thunkCreators";
 import { setRunUseEffectAppComponent } from "./BLL/authUserData/actionCreators";
-import { getIsLoggedInSelector, getOwnerIdSelector, getRunUseEffectAppComponent } from "./BLL/authUserData/selectors";
+import { getIsLoggedInSelector, getOwnerIdSelector, getRunUseEffectAppComponentSelector } from "./BLL/authUserData/selectors";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import AppPreloader from "./UI/common/AppPreloader";
@@ -80,7 +80,7 @@ const mapStateToProps = (state) => {
     isAppInitialized: getIsAppInitializedSelector(state),
     isLoggedIn: getIsLoggedInSelector(state),
     ownerId: getOwnerIdSelector(state),
-    runUseEffectAppComponent: getRunUseEffectAppComponent(state)
+    runUseEffectAppComponent: getRunUseEffectAppComponentSelector(state)
   }
 }
 

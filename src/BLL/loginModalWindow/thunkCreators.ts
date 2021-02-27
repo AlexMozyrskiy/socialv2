@@ -7,9 +7,9 @@ import { loginAPI } from "./../../DAL/login/api";
 import { setResponseErrorTextIntoState } from "./../loginModalWindow/actionCreators";
 import { initializedAppThunkCreator } from "../initializedApp/thunkCreators";
 
+type logInThunkCreatorTSType = (email: string, password: string, rememberMe: boolean, captcha: boolean) => (dispath: Function) => void;
 
-
-export const logInThunkCreator = (email, password, rememberMe = false, captcha = false) => async (dispatch) => {
+export const logInThunkCreator: logInThunkCreatorTSType = (email, password, rememberMe = false, captcha = false) => async (dispatch) => {
     dispatch(setIsModalLoginWindowButtonClicked(true));
 
     const data = await loginAPI.logIn(email, password, rememberMe, captcha);
@@ -21,7 +21,7 @@ export const logInThunkCreator = (email, password, rememberMe = false, captcha =
         dispatch(setCaptchaIntoState(false, null));
     } else if (data.resultCode === 10) {             // captcha
         loginAPI.getCaptcha()
-            .then(captchaURL => {
+            .then((captchaURL: string) => {
                 dispatch(setCaptchaIntoState(true, captchaURL));
             })
     } else if(data.resultCode === 1) {

@@ -3,8 +3,11 @@ import {
     SET_USER_INFO_INTO_STATE, SET_USER_PHOTOS_INTO_STATE,
     TOOGLE_LOOKING_FOR_A_JOB, RUN_USE_EFFECT_APP_COMPONENT
 } from "./actionTypes";
+import {
+    InitialStateTSType, ActionRedecerTSType
+} from "./typeScriprtTypes";
 
-const initialState = {
+const initialState: InitialStateTSType = {
     runUseEffectAppComponent: true,          // для того чтобы в useEffect в App.js делать запрос на сервер авторизован ли пользователь(me) только 1 раз при логине и логауте. useEffect делает 2 раза так как зависит от свойства стейта isLoggedIn, а при авторизации и логауте оно меняется и получается запрос уходит 2 раза
     isLoggedIn: false,
     id: null,
@@ -31,10 +34,10 @@ const initialState = {
     }
 };
 
-const authUserDataReducer = (state = initialState, action) => {
+const authUserDataReducer = (state: InitialStateTSType = initialState, action: ActionRedecerTSType) => {
     switch (action.type) {
         case LOGGED_IN_OUT_USER_DATA: {
-            const superState = {
+            const superState: InitialStateTSType = {
                 ...state,
                 id: action.id,
                 login: action.login,
@@ -45,7 +48,7 @@ const authUserDataReducer = (state = initialState, action) => {
         }
 
         case SET_USER_STATUS_INTO_STATE: {
-            const superState = {
+            const superState: InitialStateTSType = {
                 ...state,
                 status: action.status
             };
@@ -53,7 +56,7 @@ const authUserDataReducer = (state = initialState, action) => {
         }
 
         case RUN_USE_EFFECT_APP_COMPONENT: {                // смотри комментарий по этому свойству в редюсере
-            const superState = {
+            const superState: InitialStateTSType = {
                 ...state,
                 runUseEffectAppComponent: action.runUseEffectAppComponent
             };
@@ -61,7 +64,7 @@ const authUserDataReducer = (state = initialState, action) => {
         }
 
         case TOOGLE_LOOKING_FOR_A_JOB: {
-            const superState = {
+            const superState: InitialStateTSType = {
                 ...state,
                 lookingForAJob: action.lookingForAJob
             };
@@ -69,7 +72,7 @@ const authUserDataReducer = (state = initialState, action) => {
         }
 
         case SET_USER_PHOTOS_INTO_STATE: {
-            const superState = {
+            const superState: InitialStateTSType = {
                 ...state,
                 photos: {
                     ...state.photos,
@@ -81,7 +84,7 @@ const authUserDataReducer = (state = initialState, action) => {
         }
 
         case SET_USER_INFO_INTO_STATE: {
-            const superState = {
+            const superState: InitialStateTSType = {
                 ...state,
                 aboutMe: action.aboutMe,
                 lookingForAJob: action.lookingForAJob,
