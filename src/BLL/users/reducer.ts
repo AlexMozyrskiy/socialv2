@@ -7,7 +7,11 @@ import {
     SET_NUMBERS_IN_FIRST_LAST_PAGINATION_SQUARES
 } from "./actionTypes";
 
-const initialState = {
+import {
+    InitialStateTSType, ActionRedecerTSType, UsersReducerTStype
+} from "./typeScriprtTypes";
+
+const initialState: InitialStateTSType = {
     items: [
         {
             name: null,
@@ -38,7 +42,7 @@ const initialState = {
     numberInLastPaginationSquare: 10
 };
 
-const usersReducers = (state = initialState, action) => {
+const usersReducers: UsersReducerTStype = (state = initialState, action: ActionRedecerTSType) => {
     switch (action.type) {
         case SET_USERS_ARRAY_TOTAL_COUNT_ERROR_INTO_STATE: {            // меняем в стейте массив юзеров(items), totalCount, error
             const superState = {

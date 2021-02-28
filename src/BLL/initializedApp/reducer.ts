@@ -1,13 +1,14 @@
 import { INITIALIZED_APP } from "./actionTypes";
+import { InitialStateTSType, InitializedAppTStype, ActionRedecerTSType } from "./typeScriprtTypes";
 
-const initialState = {
+const initialState: InitialStateTSType = {
     isAppInitialized: false
 };
 
-const initializedAppReducer = (state = initialState, action) => {
+const initializedAppReducer: InitializedAppTStype = (state = initialState, action: ActionRedecerTSType) => {
     switch (action.type) {
         case INITIALIZED_APP: {
-            const superState = {
+            const superState: InitialStateTSType = {
                 ...state,
                 isAppInitialized: action.isAppInitialized
             };

@@ -1,15 +1,18 @@
 import { IS_OWNER_PROFILE_PAGE_SAVE_CHANGES_BUTTON_CLICKED, IS_OWNER_PROFILE_PAGE_UPDATE_PHOTO_BUTTON_CLICKED } from "./actionTypes";
+import {
+    InitialStateTSType, ActionRedecerTSType, ownerProfilePageTStype
+} from "./typeScriprtTypes";
 
-const initialState = {
+const initialState: InitialStateTSType = {
     isSaveChangesButtonClicked: false,
     isUpdatePhotoButtonClicked: false
 };
 
-const ownerProfilePageReducer = (state = initialState, action) => {
+const ownerProfilePageReducer: ownerProfilePageTStype = (state = initialState, action: ActionRedecerTSType) => {
     switch (action.type) {
 
         case IS_OWNER_PROFILE_PAGE_SAVE_CHANGES_BUTTON_CLICKED: {
-            const superState = {
+            const superState: InitialStateTSType = {
                 ...state,
                 isSaveChangesButtonClicked: action.isClicked
             };
@@ -17,7 +20,7 @@ const ownerProfilePageReducer = (state = initialState, action) => {
         }
 
         case IS_OWNER_PROFILE_PAGE_UPDATE_PHOTO_BUTTON_CLICKED: {
-            const superState = {
+            const superState: InitialStateTSType = {
                 ...state,
                 isUpdatePhotoButtonClicked: action.isClicked
             };

@@ -2,10 +2,14 @@ import {
     SET_USER_STATUS_INTO_STATE,
     SET_USER_INFO_INTO_STATE
 } from "./actionTypes";
+import {
+    SetNotOwnerUserStatusIntoStateActionCreatorTSType,
+    SetNotOwnerUserInfoIntoStateActionCreatorTSType
+} from "./typeScriprtTypes";
 
-export const setNotOwnerUserStatusIntoState = (userStatus) => ({ type: SET_USER_STATUS_INTO_STATE, status: userStatus });
+export const setNotOwnerUserStatusIntoState: SetNotOwnerUserStatusIntoStateActionCreatorTSType = (userStatus) => ({ type: SET_USER_STATUS_INTO_STATE, status: userStatus });
 
-export const setNotOwnerUserInfoIntoState = (userInfo) => {
+export const setNotOwnerUserInfoIntoState: SetNotOwnerUserInfoIntoStateActionCreatorTSType = (userInfo) => {
     return {
         type: SET_USER_INFO_INTO_STATE,
         id: userInfo.userId,

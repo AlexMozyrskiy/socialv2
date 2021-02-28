@@ -1,6 +1,7 @@
 import { SET_USER_STATUS_INTO_STATE, SET_USER_INFO_INTO_STATE } from "./actionTypes";
+import { InitialStateTSType ,NotOwnerUserDataTStype, ActionRedecerTSType } from "./typeScriprtTypes";
 
-const initialState = {
+const initialState: InitialStateTSType = {
     id: null,
     status: "",
     aboutMe: "",
@@ -23,11 +24,11 @@ const initialState = {
     }
 };
 
-const notOwnerUserDataReducer = (state = initialState, action) => {
+const notOwnerUserDataReducer: NotOwnerUserDataTStype = (state = initialState, action: ActionRedecerTSType) => {
     switch (action.type) {
 
         case SET_USER_STATUS_INTO_STATE: {
-            const superState = {
+            const superState: InitialStateTSType = {
                 ...state,
                 status: action.status
             };
@@ -35,7 +36,7 @@ const notOwnerUserDataReducer = (state = initialState, action) => {
         }
 
         case SET_USER_INFO_INTO_STATE: {
-            const superState = {
+            const superState: InitialStateTSType = {
                 ...state,
                 id: action.id,
                 aboutMe: action.aboutMe,

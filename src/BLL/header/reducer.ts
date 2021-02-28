@@ -1,11 +1,14 @@
 import { IS_HEADER_LOGIN_BUTTON_CLICKED, IS_HEADER_SEARCH_BUTTON_CLICKED } from "./actionTypes";
+import {
+    InitialStateTSType, ActionRedecerTSType, HeaderReducerTStype
+} from "./typeScriprtTypes";
 
-const initialState = {
+const initialState: InitialStateTSType = {
     isLoginButtonClicked: false,
     isSearchButtonClicked: false
 };
 
-const headerReducer = (state = initialState, action) => {
+const headerReducer: HeaderReducerTStype = (state = initialState, action: ActionRedecerTSType) => {
     switch (action.type) {
         case IS_HEADER_LOGIN_BUTTON_CLICKED: {
             const superState = {
