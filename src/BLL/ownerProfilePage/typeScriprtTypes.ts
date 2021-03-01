@@ -3,33 +3,32 @@ import {
     IS_OWNER_PROFILE_PAGE_UPDATE_PHOTO_BUTTON_CLICKED
 } from "./actionTypes";
 
-// -------------------------- типы которые будут использоваться несколько раз вынесем в один тип -----------------------
-type IsClickedTSType = boolean
-// -------------------------- / типы которые будут использоваться несколько раз вынесем в один тип ---------------------
+import { RootReducerSateTSType } from "../redux_store/redux-store";
+import { IsOwnerProfilePageSaveChangesButtonClicked } from "../commonTSTypes";
 
 
 // ---------------------- action creators types -------------------------------------------------------
-export type IsOwnerProfilePageSaveChangesButtonClickedActionCreatorTSType = (isClicked: IsClickedTSType) => ({
+export type IsOwnerProfilePageSaveChangesButtonClickedActionCreatorTSType = (isClicked: IsOwnerProfilePageSaveChangesButtonClicked) => ({
     type: typeof IS_OWNER_PROFILE_PAGE_SAVE_CHANGES_BUTTON_CLICKED
-    isClicked: IsClickedTSType
+    isClicked: IsOwnerProfilePageSaveChangesButtonClicked
 });
 
-export type IsOwnerProfilePageUpdatePhotoButtonClickedActionCreatorTSType = (isClicked: IsClickedTSType) => ({
+export type IsOwnerProfilePageUpdatePhotoButtonClickedActionCreatorTSType = (isClicked: IsOwnerProfilePageSaveChangesButtonClicked) => ({
     type: typeof IS_OWNER_PROFILE_PAGE_UPDATE_PHOTO_BUTTON_CLICKED
-    isClicked: IsClickedTSType
+    isClicked: IsOwnerProfilePageSaveChangesButtonClicked
 });
 // ---------------------- / action creators types -----------------------------------------------------
 
 
 // -------------------------------------- reducer type -------------------------------------
 export type InitialStateTSType = {
-    isSaveChangesButtonClicked: IsClickedTSType
-    isUpdatePhotoButtonClicked: IsClickedTSType
+    isSaveChangesButtonClicked: IsOwnerProfilePageSaveChangesButtonClicked
+    isUpdatePhotoButtonClicked: IsOwnerProfilePageSaveChangesButtonClicked
 };
 
 export type ActionRedecerTSType = {
     type: typeof IS_OWNER_PROFILE_PAGE_SAVE_CHANGES_BUTTON_CLICKED | typeof IS_OWNER_PROFILE_PAGE_UPDATE_PHOTO_BUTTON_CLICKED
-    isClicked: IsClickedTSType
+    isClicked: IsOwnerProfilePageSaveChangesButtonClicked
 };
 
 export type ownerProfilePageTStype = (state: InitialStateTSType, action: ActionRedecerTSType) => InitialStateTSType
@@ -37,9 +36,9 @@ export type ownerProfilePageTStype = (state: InitialStateTSType, action: ActionR
 
 
 // ------------------------------------ Selectors Types -------------------------------------
-type CurrentStateTSType = {
-    ownerProfilePage: InitialStateTSType
-}
-export type OwnerProfilePageIsSaveChangesButtonClickedSelectorTSType = (state: CurrentStateTSType) => IsClickedTSType
-export type OwnerProfilePageIsUpdatePhotoButtonClickedSelectorTSType = (state: CurrentStateTSType) => IsClickedTSType
+// type CurrentStateTSType = {
+//     ownerProfilePage: InitialStateTSType
+// }
+export type OwnerProfilePageIsSaveChangesButtonClickedSelectorTSType = (state: RootReducerSateTSType) => IsOwnerProfilePageSaveChangesButtonClicked
+export type OwnerProfilePageIsUpdatePhotoButtonClickedSelectorTSType = (state: RootReducerSateTSType) => IsOwnerProfilePageSaveChangesButtonClicked
 // ------------------------------------ / Selectors Types -----------------------------------

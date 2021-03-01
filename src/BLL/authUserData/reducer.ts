@@ -4,7 +4,7 @@ import {
     TOOGLE_LOOKING_FOR_A_JOB, RUN_USE_EFFECT_APP_COMPONENT
 } from "./actionTypes";
 import {
-    InitialStateTSType, ActionRedecerTSType
+    InitialStateTSType, ActionRedecerTSType, AuthUserDataReducerTStype
 } from "./typeScriprtTypes";
 
 const initialState: InitialStateTSType = {
@@ -34,7 +34,7 @@ const initialState: InitialStateTSType = {
     }
 };
 
-const authUserDataReducer = (state: InitialStateTSType = initialState, action: ActionRedecerTSType) => {
+const authUserDataReducer = (state = initialState, action: ActionRedecerTSType): InitialStateTSType => {
     switch (action.type) {
         case LOGGED_IN_OUT_USER_DATA: {
             const superState: InitialStateTSType = {

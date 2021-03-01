@@ -24,7 +24,7 @@ const initialState: InitialStateTSType = {
     }
 };
 
-const notOwnerUserDataReducer: NotOwnerUserDataTStype = (state = initialState, action: ActionRedecerTSType) => {
+const notOwnerUserDataReducer = (state = initialState, action: ActionRedecerTSType): InitialStateTSType => {
     switch (action.type) {
 
         case SET_USER_STATUS_INTO_STATE: {

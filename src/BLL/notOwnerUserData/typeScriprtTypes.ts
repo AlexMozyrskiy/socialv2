@@ -3,33 +3,16 @@ import {
     SET_USER_INFO_INTO_STATE
 } from "./actionTypes";
 
-// -------------------------- типы которые будут использоваться несколько раз вынесем в один тип -----------------------
-export type UserIdTSType = null | number
-type UserLoginTSType = null | string
-type UserEmailTSType = null | string
-type IsUserLoggedInTStype = boolean
-export type UserStatusTSType = null | string
-type RunUseEffectAppComponentTSType = boolean
-export type PhotoTSType = null | string
-type AboutMeTSType = null | string
-type LookingForAJobTSType = boolean
-type LookingForAJobDescriptionTSType = null | string
-type FullNameTSType = null | string
-type ContactsAnyPropertyTSType = null | string
+import { RootReducerSateTSType } from "../redux_store/redux-store";
+import {
+    UserIdTSType, UserStatusTSType, PhotoTSType, AboutMeTSType, LookingForAJobTSType,
+    LookingForAJobDescriptionTSType, FullNameTSType,
+    ContactsAnyPropertyTSType, UserInfoPhotosTSType,
+    UserInfoContactsTSType
+} from "../commonTSTypes";
 
-type UserInfoPhotosTSType = { small: PhotoTSType, large: PhotoTSType }
-type UserInfoContactsTSType = {
-    facebook: ContactsAnyPropertyTSType
-    github: ContactsAnyPropertyTSType
-    instagram: ContactsAnyPropertyTSType
-    mainLink: ContactsAnyPropertyTSType
-    twitter: ContactsAnyPropertyTSType
-    vk: ContactsAnyPropertyTSType
-    website: ContactsAnyPropertyTSType
-    youtube: ContactsAnyPropertyTSType
-}
 
-type UserInfoTSType = {
+export type UserInfoTSType = {
     type: typeof SET_USER_STATUS_INTO_STATE | typeof SET_USER_INFO_INTO_STATE
     userId: UserIdTSType
     aboutMe: AboutMeTSType
@@ -39,7 +22,6 @@ type UserInfoTSType = {
     photos: UserInfoPhotosTSType
     contacts: UserInfoContactsTSType
 }
-// -------------------------- / типы которые будут использоваться несколько раз вынесем в один тип ---------------------
 
 
 // ---------------------- action creators types -------------------------------------------------------
@@ -106,15 +88,15 @@ export type NotOwnerUserDataTStype = (state: InitialStateTSType, action: ActionR
 
 
 // ------------------------------------ Selectors Types -------------------------------------
-type CurrentStateTSType = {
-    notOwnerUserData: InitialStateTSType
-}
-export type NotOwnerStatusSelectorTSType = (state: CurrentStateTSType) => UserStatusTSType
-export type NotOwnerFullNameSelectorTSType = (state: CurrentStateTSType) => FullNameTSType
-export type NotOwnerSmallPhotoSelectorTSType = (state: CurrentStateTSType) => PhotoTSType
-export type NotOwnerIdSelectorTSType = (state: CurrentStateTSType) => UserIdTSType
-export type NotOwnerLookingForAJobSelectorTSType = (state: CurrentStateTSType) => LookingForAJobTSType
-export type NotOwnerLookingForAJobDescriptionSelectorTSType = (state: CurrentStateTSType) => LookingForAJobDescriptionTSType
-export type NotOwnerAboutMeSelectorTSType = (state: CurrentStateTSType) => AboutMeTSType
-export type NotOwnerContactsSelectorTSType = (state: CurrentStateTSType) => UserInfoContactsTSType
+// type CurrentStateTSType = {
+//     notOwnerUserData: InitialStateTSType
+// }
+export type NotOwnerStatusSelectorTSType = (state: RootReducerSateTSType) => UserStatusTSType
+export type NotOwnerFullNameSelectorTSType = (state: RootReducerSateTSType) => FullNameTSType
+export type NotOwnerSmallPhotoSelectorTSType = (state: RootReducerSateTSType) => PhotoTSType
+export type NotOwnerIdSelectorTSType = (state: RootReducerSateTSType) => UserIdTSType
+export type NotOwnerLookingForAJobSelectorTSType = (state: RootReducerSateTSType) => LookingForAJobTSType
+export type NotOwnerLookingForAJobDescriptionSelectorTSType = (state: RootReducerSateTSType) => LookingForAJobDescriptionTSType
+export type NotOwnerAboutMeSelectorTSType = (state: RootReducerSateTSType) => AboutMeTSType
+export type NotOwnerContactsSelectorTSType = (state: RootReducerSateTSType) => UserInfoContactsTSType
 // ------------------------------------ / Selectors Types -----------------------------------

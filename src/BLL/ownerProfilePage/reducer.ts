@@ -8,7 +8,7 @@ const initialState: InitialStateTSType = {
     isUpdatePhotoButtonClicked: false
 };
 
-const ownerProfilePageReducer: ownerProfilePageTStype = (state = initialState, action: ActionRedecerTSType) => {
+const ownerProfilePageReducer = (state = initialState, action: ActionRedecerTSType): InitialStateTSType => {
     switch (action.type) {
 
         case IS_OWNER_PROFILE_PAGE_SAVE_CHANGES_BUTTON_CLICKED: {

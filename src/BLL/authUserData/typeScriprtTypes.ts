@@ -4,20 +4,14 @@ import {
     TOOGLE_LOOKING_FOR_A_JOB, RUN_USE_EFFECT_APP_COMPONENT
 } from "./actionTypes";
 
-// -------------------------- типы которые будут использоваться несколько раз вынесем в один тип -----------------------
-type UserIdTSType = null | number
-type UserLoginTSType = null | string
-type UserEmailTSType = null | string
-type IsUserLoggedInTStype = boolean
-type UserStatusTSType = null | string
-type RunUseEffectAppComponentTSType = boolean
-type PhotoTSType = null | string
-type AboutMeTSType = null | string
-type LookingForAJobTSType = boolean
-type LookingForAJobDescriptionTSType = null | string
-type FullNameTSType = null | string
-type ContactsAnyPropertyTSType = null | string
-// -------------------------- / типы которые будут использоваться несколько раз вынесем в один тип ---------------------
+import { RootReducerSateTSType } from "../redux_store/redux-store";
+import {
+    UserIdTSType, UserLoginTSType, UserEmailTSType,
+    IsUserLoggedInTStype, UserStatusTSType, RunUseEffectAppComponentTSType,
+    PhotoTSType, AboutMeTSType, LookingForAJobTSType,
+    LookingForAJobDescriptionTSType, FullNameTSType,
+    ContactsAnyPropertyTSType
+} from "../commonTSTypes";
 
 
 // ---------------------- action creators types -------------------------------------------------------
@@ -131,22 +125,22 @@ export type ActionRedecerTSType = {
     photoLarge: PhotoTSType
 };
 
-export type LoginModalWindowReducerTStype = (state: InitialStateTSType, action: ActionRedecerTSType) => InitialStateTSType
+export type AuthUserDataReducerTStype = (state: InitialStateTSType, action: ActionRedecerTSType) => InitialStateTSType
 // -------------------------------------- / reducer type -----------------------------------
 
 
 // ------------------------------------ Selectors Types -------------------------------------
-type CurrentStateTSType = {
-    authUserData: InitialStateTSType
-}
-export type IsLoggedInSelectorTSType = (state: CurrentStateTSType) => IsUserLoggedInTStype
-export type OwnerStatusSelectorTSType = (state: CurrentStateTSType) => UserStatusTSType
-export type OwnerFullNameSelectorTSType = (state: CurrentStateTSType) => FullNameTSType
-export type OwnerPhotoSelectorTSType = (state: CurrentStateTSType) => PhotoTSType
-export type OwnerIdSelectorTSType = (state: CurrentStateTSType) => UserIdTSType
-export type OwnerLookingForAJobSelectorTSType = (state: CurrentStateTSType) => LookingForAJobTSType
-export type OwnerLookingForAJobDescriptionSelectorTSType = (state: CurrentStateTSType) => LookingForAJobDescriptionTSType
-export type OwnerAboutMeSelectorTSType = (state: CurrentStateTSType) => AboutMeTSType
-export type OwnerContactsSelectorTSType = (state: CurrentStateTSType) => UserInfoContactsTSType
-export type RunUseEffectAppComponentSelectorTSType = (state: CurrentStateTSType) => RunUseEffectAppComponentTSType
+// type CurrentStateTSType = {
+//     authUserData: InitialStateTSType
+// }
+export type IsLoggedInSelectorTSType = (state: RootReducerSateTSType) => IsUserLoggedInTStype
+export type OwnerStatusSelectorTSType = (state: RootReducerSateTSType) => UserStatusTSType
+export type OwnerFullNameSelectorTSType = (state: RootReducerSateTSType) => FullNameTSType
+export type OwnerPhotoSelectorTSType = (state: RootReducerSateTSType) => PhotoTSType
+export type OwnerIdSelectorTSType = (state: RootReducerSateTSType) => UserIdTSType
+export type OwnerLookingForAJobSelectorTSType = (state: RootReducerSateTSType) => LookingForAJobTSType
+export type OwnerLookingForAJobDescriptionSelectorTSType = (state: RootReducerSateTSType) => LookingForAJobDescriptionTSType
+export type OwnerAboutMeSelectorTSType = (state: RootReducerSateTSType) => AboutMeTSType
+export type OwnerContactsSelectorTSType = (state: RootReducerSateTSType) => UserInfoContactsTSType
+export type RunUseEffectAppComponentSelectorTSType = (state: RootReducerSateTSType) => RunUseEffectAppComponentTSType
 // ------------------------------------ / Selectors Types -----------------------------------

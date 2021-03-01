@@ -8,7 +8,7 @@ import {
 } from "./actionTypes";
 
 import {
-    InitialStateTSType, ActionRedecerTSType, UsersReducerTStype
+    InitialStateTSType, ActionRedecerTSType
 } from "./typeScriprtTypes";
 
 const initialState: InitialStateTSType = {
@@ -42,7 +42,7 @@ const initialState: InitialStateTSType = {
     numberInLastPaginationSquare: 10
 };
 
-const usersReducers: UsersReducerTStype = (state = initialState, action: ActionRedecerTSType) => {
+const usersReducers = (state = initialState, action: ActionRedecerTSType): InitialStateTSType => {
     switch (action.type) {
         case SET_USERS_ARRAY_TOTAL_COUNT_ERROR_INTO_STATE: {            // меняем в стейте массив юзеров(items), totalCount, error
             const superState = {

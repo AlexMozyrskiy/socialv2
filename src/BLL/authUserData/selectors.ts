@@ -7,6 +7,7 @@ import {
     RunUseEffectAppComponentSelectorTSType
 } from "./typeScriprtTypes";
 
+
 export const getIsLoggedInSelector: IsLoggedInSelectorTSType =  (state) => {
     return state.authUserData.isLoggedIn;
 }

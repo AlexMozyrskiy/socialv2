@@ -4,6 +4,14 @@ import {
     TOOGLE_IS_LOGIN_REQUIREMENT
 } from "./actionTypes";
 
+import { RootReducerSateTSType } from "../redux_store/redux-store";
+import {
+    ISModalLoginWindowActiveTSType, IsLoginButtonClickedTSType,
+    IsCaptchActiveTSType, CaptchaURLTSType, ResponseErrorTextTSType,
+    IsLoginRequirementTSType
+} from "../commonTSTypes";
+
+
 // ---------------------- action creators types -------------------------------------------------------
 export type SetIsModalLoginWindowActiveActionCreatorTSType = (isModalLoginWindowActive: boolean) => ({
     type: typeof IS_MODAL_LOGIN_WINDOW_ACTIVE,
@@ -51,3 +59,18 @@ export type ActionTSType = {
 
 export type LoginModalWindowReducerTStype = (state: InitialStateTSType, action: ActionTSType) => InitialStateTSType
 // -------------------------------------- / reducer type -----------------------------------
+
+
+// ------------------------------------ Selectors Types -------------------------------------
+// type CurrentStateTSType = {
+//     loginModalWindow: InitialStateTSType
+// }
+export type ISModalLoginWindowActiveSelectorTSType = (state: RootReducerSateTSType) => ISModalLoginWindowActiveTSType
+export type getIsLoginButtonClickedSelectorTSType = (state: RootReducerSateTSType) => IsLoginButtonClickedTSType
+export type getIsCaptchActiveSelectorTSType = (state: RootReducerSateTSType) => IsCaptchActiveTSType
+export type getCaptchaURLSelectorTSType = (state: RootReducerSateTSType) => CaptchaURLTSType
+export type getResponseErrorTextSelectorTSType = (state: RootReducerSateTSType) => ResponseErrorTextTSType
+export type getIsLoginRequirementSelectorTSType = (state: RootReducerSateTSType) => IsLoginRequirementTSType
+
+
+// ------------------------------------ / Selectors Types -----------------------------------

@@ -2,9 +2,10 @@ import {
     UsersArraySelectorTSType, TotalUsersCountSelectorTSType,
     UsersErrorSelectorTSType, UsersCurrentPageSelectorTSType,
     IsPreloaderActiveSelectorTSType, IdClickedFollowButtonsArrayTSType,
-    RunUseEffectTSType, IsFirstUsersLoadedTSType,
-    IsButtonLoadMoreUsersClickedTSType, CountOfShownUsersSelectorTSType,
-    NumberInFirstPaginationSquareSelectorTSType, NumberInLastPaginationSquareSelectorTSType
+    CountOfShownUsersSelectorTSType,
+    NumberInFirstPaginationSquareSelectorTSType, NumberInLastPaginationSquareSelectorTSType,
+    RunUseEffectSelectorTSType, IsFirstUsersLoadedSelectorTSType,
+    IsButtonLoadMoreUsersClickedSelectorTSType
 } from "./typeScriprtTypes";
 
 export const getUsersArraySelector: UsersArraySelectorTSType =  (state) => {
@@ -31,15 +32,15 @@ export const getIdClickedFollowButtonsArray: IdClickedFollowButtonsArrayTSType =
     return state.users.clickedButtonsIds;
 }
 
-export const getRunUseEffect: RunUseEffectTSType =  (state) => {
+export const getRunUseEffect: RunUseEffectSelectorTSType =  (state) => {
     return state.users.runUseEffectInUsersPageContainer;
 }
 
-export const getIsFirstUsersLoaded: IsFirstUsersLoadedTSType =  (state) => {
+export const getIsFirstUsersLoaded: IsFirstUsersLoadedSelectorTSType =  (state) => {
     return state.users.isFirstUsersLoaded;
 }
 
-export const getIsButtonLoadMoreUsersClicked: IsButtonLoadMoreUsersClickedTSType =  (state) => {
+export const getIsButtonLoadMoreUsersClicked: IsButtonLoadMoreUsersClickedSelectorTSType =  (state) => {
     return state.users.isButtonLoadMoreUsersClicked;
 }
 

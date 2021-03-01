@@ -5,7 +5,7 @@ const initialState: InitialStateTSType = {
     isAppInitialized: false
 };
 
-const initializedAppReducer: InitializedAppTStype = (state = initialState, action: ActionRedecerTSType) => {
+const initializedAppReducer = (state = initialState, action: ActionRedecerTSType): InitialStateTSType => {
     switch (action.type) {
         case INITIALIZED_APP: {
             const superState: InitialStateTSType = {

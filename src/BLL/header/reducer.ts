@@ -8,7 +8,7 @@ const initialState: InitialStateTSType = {
     isSearchButtonClicked: false
 };
 
-const headerReducer: HeaderReducerTStype = (state = initialState, action: ActionRedecerTSType) => {
+const headerReducer = (state = initialState, action: ActionRedecerTSType): InitialStateTSType => {
     switch (action.type) {
         case IS_HEADER_LOGIN_BUTTON_CLICKED: {
             const superState = {

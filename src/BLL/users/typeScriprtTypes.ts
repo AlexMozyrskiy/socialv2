@@ -6,33 +6,14 @@ import {
     SET_NUMBERS_IN_FIRST_LAST_PAGINATION_SQUARES
 } from "./actionTypes";
 
-import { UserIdTSType, PhotoTSType, UserStatusTSType } from "../notOwnerUserData/typeScriprtTypes";
+import {
+    UserIdTSType, UsersArrayTSType, TotalCountTSType, ErrorTSType, CurrentPageTSType,
+    IsPreloaderActiveTSType, IsFollowTSType, FirstNumberTSType,
+    LastNumberTSType, CountOfShownUsersTSType, IsRunUseEffectTSType,
+    IsFirstUsersLoadedTSType, IsButtonLoadMoreUsersClickedTSType
+} from "../commonTSTypes";
 
-// -------------------------- типы которые будут использоваться несколько раз вынесем в один тип -----------------------
-type UserInfoPhotosTSType = { small: PhotoTSType, large: PhotoTSType }
-type NameTSType = null | string
-type UniqueUrlNameTSType = null | string
-type FollowedTSType = boolean
-
-type UserTSType = {
-    name: NameTSType
-    id: UserIdTSType
-    uniqueUrlName: UniqueUrlNameTSType
-    photos: UserInfoPhotosTSType
-    status: UserStatusTSType
-    followed: FollowedTSType
-}
-type UsersArrayTSType = Array<UserTSType>
-
-type TotalCountTSType = number
-type ErrorTSType = null | string
-type CurrentPageTSType = number
-type IsPreloaderActiveTSType = boolean
-type IsFollowTSType = boolean
-type FirstNumberTSType = number
-type LastNumberTSType = number
-type CountOfShownUsersTSType = number
-// -------------------------- / типы которые будут использоваться несколько раз вынесем в один тип ---------------------
+import { RootReducerSateTSType } from "../redux_store/redux-store";
 
 
 // ---------------------- action creators types -------------------------------------------------------
@@ -144,19 +125,19 @@ export type UsersReducerTStype = (state: InitialStateTSType, action: ActionRedec
 
 
 // ------------------------------------ Selectors Types -------------------------------------
-type CurrentStateTSType = {
-    users: InitialStateTSType
-}
-export type UsersArraySelectorTSType = (state: CurrentStateTSType) => UsersArrayTSType
-export type TotalUsersCountSelectorTSType = (state: CurrentStateTSType) => TotalCountTSType
-export type UsersErrorSelectorTSType = (state: CurrentStateTSType) => ErrorTSType
-export type UsersCurrentPageSelectorTSType = (state: CurrentStateTSType) => CurrentPageTSType
-export type IsPreloaderActiveSelectorTSType = (state: CurrentStateTSType) => IsPreloaderActiveTSType
-export type IdClickedFollowButtonsArrayTSType = (state: CurrentStateTSType) => Array<UserIdTSType>
-export type RunUseEffectTSType = (state: CurrentStateTSType) => boolean
-export type IsFirstUsersLoadedTSType = (state: CurrentStateTSType) => boolean
-export type IsButtonLoadMoreUsersClickedTSType = (state: CurrentStateTSType) => boolean
-export type CountOfShownUsersSelectorTSType = (state: CurrentStateTSType) => CountOfShownUsersTSType
-export type NumberInFirstPaginationSquareSelectorTSType = (state: CurrentStateTSType) => FirstNumberTSType
-export type NumberInLastPaginationSquareSelectorTSType = (state: CurrentStateTSType) => LastNumberTSType
+// type CurrentStateTSType = {
+//     users: InitialStateTSType
+// }
+export type UsersArraySelectorTSType = (state: RootReducerSateTSType) => UsersArrayTSType
+export type TotalUsersCountSelectorTSType = (state: RootReducerSateTSType) => TotalCountTSType
+export type UsersErrorSelectorTSType = (state: RootReducerSateTSType) => ErrorTSType
+export type UsersCurrentPageSelectorTSType = (state: RootReducerSateTSType) => CurrentPageTSType
+export type IsPreloaderActiveSelectorTSType = (state: RootReducerSateTSType) => IsPreloaderActiveTSType
+export type IdClickedFollowButtonsArrayTSType = (state: RootReducerSateTSType) => Array<UserIdTSType>
+export type RunUseEffectSelectorTSType = (state: RootReducerSateTSType) => IsRunUseEffectTSType
+export type IsFirstUsersLoadedSelectorTSType = (state: RootReducerSateTSType) => IsFirstUsersLoadedTSType
+export type IsButtonLoadMoreUsersClickedSelectorTSType = (state: RootReducerSateTSType) => IsButtonLoadMoreUsersClickedTSType
+export type CountOfShownUsersSelectorTSType = (state: RootReducerSateTSType) => CountOfShownUsersTSType
+export type NumberInFirstPaginationSquareSelectorTSType = (state: RootReducerSateTSType) => FirstNumberTSType
+export type NumberInLastPaginationSquareSelectorTSType = (state: RootReducerSateTSType) => LastNumberTSType
 // ------------------------------------ / Selectors Types -----------------------------------

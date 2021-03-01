@@ -16,10 +16,10 @@ let initialState: InitialStateTSType = {
     isLoginRequirementActive: false
 };
 
-const loginModalWindowReducer: LoginModalWindowReducerTStype = (state = initialState, action: ActionTSType) => {
+const loginModalWindowReducer = (state = initialState, action: ActionTSType): InitialStateTSType => {
     switch (action.type) {
         case IS_MODAL_LOGIN_WINDOW_ACTIVE: {
-            const superState = {
+            const superState: InitialStateTSType = {
                 ...state,
                 isModalLoginWindowActive: action.isModalLoginWindowActive
             };
@@ -27,7 +27,7 @@ const loginModalWindowReducer: LoginModalWindowReducerTStype = (state = initialS
         }
 
         case IS_MODAL_LOGIN_WINDOW_BUTTON_CLICKED: {
-            const superState = {
+            const superState: InitialStateTSType = {
                 ...state,
                 isLoginButtonClicked: action.isLoginButtonClicked
             };
@@ -35,7 +35,7 @@ const loginModalWindowReducer: LoginModalWindowReducerTStype = (state = initialS
         }
 
         case SET_RESPONSE_ERROR_TEXT_INTO_STATE: {
-            const superState = {
+            const superState: InitialStateTSType = {
                 ...state,
                 responseErrorText: action.responseErrorText
             };
@@ -43,7 +43,7 @@ const loginModalWindowReducer: LoginModalWindowReducerTStype = (state = initialS
         }
 
         case SET_CAPTCHA_INTO_STATE: {
-            const superState = {
+            const superState: InitialStateTSType = {
                 ...state,
                 isCapthaActive: action.isCapthaActive,
                 captchaURL: action.captchaURL
@@ -52,7 +52,7 @@ const loginModalWindowReducer: LoginModalWindowReducerTStype = (state = initialS
         }
 
         case TOOGLE_IS_LOGIN_REQUIREMENT: {
-            const superState = {
+            const superState: InitialStateTSType = {
                 ...state,
                 isLoginRequirementActive: action.isLoginRequirementActive
             };

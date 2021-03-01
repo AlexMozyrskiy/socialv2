@@ -2,10 +2,8 @@ import {
     INITIALIZED_APP
 } from "./actionTypes";
 
-// -------------------------- типы которые будут использоваться несколько раз вынесем в один тип -----------------------
-type IsAppInitializedTSType = boolean
-
-// -------------------------- / типы которые будут использоваться несколько раз вынесем в один тип ---------------------
+import { RootReducerSateTSType } from "../redux_store/redux-store";
+import { IsAppInitializedTSType } from "../commonTSTypes";
 
 
 // ---------------------- action creators types -------------------------------------------------------
@@ -31,8 +29,8 @@ export type InitializedAppTStype = (state: InitialStateTSType, action: ActionRed
 
 
 // ------------------------------------ Selectors Types -------------------------------------
-type CurrentStateTSType = {
-    initializedApp: InitialStateTSType
-}
-export type IsAppInitializedSelectorTSType = (state: CurrentStateTSType) => IsAppInitializedTSType
+// type CurrentStateTSType = {
+//     initializedApp: InitialStateTSType
+// }
+export type IsAppInitializedSelectorTSType = (state: RootReducerSateTSType) => IsAppInitializedTSType
 // ------------------------------------ / Selectors Types -----------------------------------

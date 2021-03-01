@@ -2,15 +2,22 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import HeaderUserSearchForm from "./HeaderUserSearchForm";
-import { notOwnerUserProfileThunkCreator } from "../../../BLL/notOwnerUserData/thunkCreators";
+// import { notOwnerUserProfileThunkCreator } from "../../../BLL/notOwnerUserData/thunkCreators";
 import { getIsSearchButtonClickedSelector } from "../../../BLL/header/selectors";
 import { connect } from "react-redux";
+import { RootReducerSateTSType } from "../../../BLL/redux_store/redux-store";
+import {
+    MapStateToPropsTSType, PropsTSType, formDataTSType,
+    MapDispatchToPropsTSType, OwnPropsTSType
+} from "./HeaderUserSearchFormContainerTSTypes";
 
-const HeaderUserSearchFormContainer = (props) => {
+
+const HeaderUserSearchFormContainer: React.FC<PropsTSType> = (props) => {
     const { register, handleSubmit, errors } = useForm();
     const history = useHistory();                           // добавляет новый УРЛ и компонент перересовывается правильно
 
-    const onSubmit = (formData) => {        // в formData все данные из заполненой формы
+    const onSubmit = (formData: formDataTSType) => {        // в formData все данные из заполненой формы
+        debugger
         formData.id = Number(formData.id)
         // действия с заполненными данными, например санки
         // console.log(formData.id);
@@ -27,14 +34,14 @@ const HeaderUserSearchFormContainer = (props) => {
 }
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: RootReducerSateTSType) => {
     return {
         isSearchButtonClicked: getIsSearchButtonClickedSelector(state)
     }
 }
 
 const mapDispatchToProps = {
-    notOwnerUserProfileThunkCreator
+    // notOwnerUserProfileThunkCreator
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderUserSearchFormContainer);
+export default connect<MapStateToPropsTSType, MapDispatchToPropsTSType, OwnPropsTSType, RootReducerSateTSType>(mapStateToProps, mapDispatchToProps)(HeaderUserSearchFormContainer);

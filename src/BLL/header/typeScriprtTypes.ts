@@ -2,11 +2,8 @@ import {
     IS_HEADER_LOGIN_BUTTON_CLICKED, IS_HEADER_SEARCH_BUTTON_CLICKED
 } from "./actionTypes";
 
-// -------------------------- типы которые будут использоваться несколько раз вынесем в один тип -----------------------
-type IsLoginButtonClickedTSType = boolean
-type IsSearchButtonClickedTSType = boolean
-
-// -------------------------- / типы которые будут использоваться несколько раз вынесем в один тип ---------------------
+import { RootReducerSateTSType } from "../redux_store/redux-store";
+import { IsLoginButtonClickedTSType, IsSearchButtonClickedTSType } from "../commonTSTypes";
 
 
 // ---------------------- action creators types -------------------------------------------------------
@@ -38,9 +35,9 @@ export type HeaderReducerTStype = (state: InitialStateTSType, action: ActionRede
 
 
 // ------------------------------------ Selectors Types -------------------------------------
-type CurrentStateTSType = {
-    header: InitialStateTSType
-}
-export type IsHeaderLoginButtonClickedSelectorTSType = (state: CurrentStateTSType) => IsLoginButtonClickedTSType
-export type IsSearchButtonClickedSelectorTSType = (state: CurrentStateTSType) => IsSearchButtonClickedTSType
+// type CurrentStateTSType = {
+//     header: InitialStateTSType
+// }
+export type IsHeaderLoginButtonClickedSelectorTSType = (state: RootReducerSateTSType) => IsLoginButtonClickedTSType
+export type IsSearchButtonClickedSelectorTSType = (state: RootReducerSateTSType) => IsSearchButtonClickedTSType
 // ------------------------------------ / Selectors Types -----------------------------------
