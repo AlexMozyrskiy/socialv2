@@ -12,7 +12,7 @@ export type MapDispatchToPropsTSType = {   // пропсы с функциями
 }
 
 export type OwnPropsTSType = {             // все остальные пропсы в том числе переданные серез родительский компонент и написанные в этом компоненте
-
+    
 }
 
 export type PropsTSType = MapStateToPropsTSType & MapDispatchToPropsTSType & OwnPropsTSType
@@ -20,7 +20,12 @@ export type PropsTSType = MapStateToPropsTSType & MapDispatchToPropsTSType & Own
 
 
 // --------------------------------- Типизация параметров принимаемых функциями --------------
-export type formDataTSType = {
-    id: UserIdTSType
-}
+export type onHeaderSearchFormSubmit = (searchFieldValue: any) => void
 // --------------------------------- / Типизация параметров принимаемых функциями ------------
+
+// --------------------------------- Типизация useStat`s --------------
+export type headerSearchFieldValidateErrorTSType = {
+    isValidate: boolean
+    message: null | string
+}
+// --------------------------------- / Типизация useStat`s ------------

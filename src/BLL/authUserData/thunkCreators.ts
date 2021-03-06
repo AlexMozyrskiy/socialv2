@@ -4,8 +4,11 @@ import {
     setUserData, setUserStatusIntoState,
     setUserInfoIntoState
 } from "./actionCreators";
+import { ActionRedecerTSType } from "./typeScriprtTypes";
+import { ThunkAction } from 'redux-thunk';
+import { RootReducerSateTSType } from '../redux_store/redux-store';
 
-export const isAuthThunkCreator = () => async (dispatch) => {
+export const isAuthThunkCreator = (): ThunkAction<Promise<void>, RootReducerSateTSType, unknown, ActionRedecerTSType> => async (dispatch, getState) => {
     const data = await loginAPI.isAuth();
 
     if (data.resultCode === 0) {            // если пользователь залогинен
