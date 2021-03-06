@@ -1,4 +1,6 @@
-import * as axios from "axios";
+import axios from "axios";
+import * as CommonAPITStypes from "../commonTSTypes";
+import { IsAuthResponseTSType } from "./typescriptTypes";
 
 const axiosInstance = axios.create({
     withCredentials: true,
@@ -9,7 +11,8 @@ const axiosInstance = axios.create({
 });
 
 export const loginAPI = {
-    logIn(email, password, rememberMe = false, captcha = false) {
+    logIn(email: CommonAPITStypes.EmailTSType, password: CommonAPITStypes.PasswordTSType, rememberMe: CommonAPITStypes.RememberMeTSType = false, captcha: CommonAPITStypes.CaptchaTSType = false) {
+    // logIn(email, password, rememberMe = false, captcha = false) {
         return axiosInstance.post(`auth/login`, { email: email, password: password, rememberMe: rememberMe, captcha: captcha })
             .then(response => {
                 return response.data;
@@ -31,7 +34,7 @@ export const loginAPI = {
     },
 
     isAuth() {                              // залогинен ли пользователь
-        return axiosInstance.get("auth/me")
+        return axiosInstance.get<IsAuthResponseTSType>("auth/me")
             .then(response => {
                 return response.data;
             });

@@ -7,11 +7,12 @@ import {
 import { ActionRedecerTSType } from "./typeScriprtTypes";
 import { ThunkAction } from 'redux-thunk';
 import { RootReducerSateTSType } from '../redux_store/redux-store';
+import { ResultCodesEnum } from "../../DAL/login/typescriptTypes";
 
 export const isAuthThunkCreator = (): ThunkAction<Promise<void>, RootReducerSateTSType, unknown, ActionRedecerTSType> => async (dispatch, getState) => {
     const data = await loginAPI.isAuth();
 
-    if (data.resultCode === 0) {            // если пользователь залогинен
+    if (data.resultCode === ResultCodesEnum.Success) {            // если пользователь залогинен
         const userData = { userId: data.data.id, userLogin: data.data.login, userEmail: data.data.email, isUserLoggedIn: true }  // 1. задиспатчим первоначальные данные(которые приходят с ответом от сервера) в стейт
         dispatch(setUserData(userData));
 
